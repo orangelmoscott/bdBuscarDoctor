@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConsultaDoctor.MainPage"
+             x:Name="TodosView"
+             x:DataType="viewmodels:DoctoresViewModel"
+              xmlns:viewmodels="clr-namespace:ConsultaDoctor.ViewModels"
+             xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+             ios:Page.UseSafeArea = "True">
+
+    <ContentPage.BindingContext> 
+        <viewmodels:DoctoresViewModel/> 
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout>
+    <StackLayout Orientation="Vertical">
+         <Label Text="Doctor Numero" FontSize="25"/>
+         <Entry HorizontalOptions="FillAndExpand" x:Name="txtid" 
+                Text="{Binding DoctId}"/> 
+         <Button Text="Buscar Doctor" x:Name= "botonbuscar" Clicked="botonbuscar_Clicked"
+                    HorizontalOptions="FillAndExpand"/> 
+    </StackLayout >
+      
+
+
+    <StackLayout Orientation= "Vertical">
+         <Label Text="{Binding Doctores.Apellido, StringFormat='Apellido : {0}'}" FontSize="25"/>
+         <Label Text="{Binding Doctores.Especialidad,StringFormat='Especialidad : {0}'}" FontSize="25"/>
+         <Label Text="{Binding Doctores.Salario,StringFormat='Salario : {0}'}" FontSize="25"/> 
+    </StackLayout>
+</StackLayout>
+     </ContentPage.Content>
+</ContentPage> 
